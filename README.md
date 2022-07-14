@@ -1,2 +1,2 @@
 # Latex-projects
-Templates
+Templates of LaTeX
