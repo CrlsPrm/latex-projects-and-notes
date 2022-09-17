@@ -1,0 +1,71 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}%acentos y caracteres en español
+\usepackage[spanish]{babel}%Secciones y subsecciones en español teoremas ,etc.
+\usepackage[total={18cm,21cm},top=2cm,left=2cm]{geometry}%configuración de página
+\usepackage{amsmath,amssymb,amsfonts,latexsym}%símbolos matemáticos y texto normal
+\usepackage{graphicx}%gráficos y figuras
+\usepackage[xlines,table]{xcolor}%color del texto
+\usepackage{verbatim}
+\usepackage{hyperref}%enlaces
+\usepackage{multicol}
+\usepackage{dsfont}%Incierto OUO
+\usepackage{booktabs}%aparte de \hline  adiciona \toprule y \bottomrule
+\usepackage{tabularx}%tablas
+\usepackage{rotating}
+\usepackage{float}
+\parskip=3pt%espacio entre lineas 
+\parindent=3pt 
+\definecolor{Nombre_del_color}{RGB}{245,254,254}%Color de fondo de la tabla
+
+\title{Curso Autodidacto de tablas en LaTeX}
+\author{Creado por: Carlos Raúl P.S.}
+\begin{document}
+\maketitle
+
+\section{Preámbulo para la correcta creación de tablas}
+Para poder crear tablas se necesita un preámbulos que contengan todos los aspectos que se van a utilizar en la tabla.
+\begin{verbatim}
+    \documentclass[12pt,letterpaper]{article}
+    \usepackage[utf8]{inputenc}%acentos y caracteres en español
+    \usepackage[spanish]{babel}%Secciones y subsecciones en español teoremas ,etc.
+    \usepackage[total={18cm,21cm},top=2cm,left=2cm]{geometry}%config. de pág.
+    \usepackage{amsmath,amssymb,amsfonts,latexsym}%símbolos matemáticos  
+    \usepackage{graphicx}%gráficos y figuras
+    \usepackage[xlines,table]{xcolor}%color del texto
+    \usepackage{verbatim}
+    \usepackage{hyperref}%enlaces
+    \usepackage{multicol}
+    \usepackage{dsfont}%incierto OUO
+    \usepackage{booktabs}%aparte de \hline  adiciona \toprule y \bottomrule
+    \usepackage{tabularx}%tablas
+    \usepackage{rotating}
+    \parskip=5pt%espacio entre lineas 
+    \parindent=3pt 
+    \definecolor{Nombre_del_color}{RGB}{245,254,254}%Color de fondo de la tabla
+\end{verbatim}
+Para saber la lista de códigos de colores que corresponde ver en \url{https://www.htmlcsscolor.com/hex/F5FEFE}
+\\ 
+Recurso bastante util generador de tablas en \url{https://www.tablesgenerator.com/}.
+\subsection{Ejemplo de tabla}
+\subsubsection{Tablas \textit{matemáticas}  }
+Todo contenido en ellas estará en estilo matemático.
+\[ 
+    \begin{array}{l|c|c|r}
+         \text{$x$ lcr indica la cantidad de columnas}&r=right=derecha&c=center&l=left=izquierda\\
+         \text{La cantidad de filas } &\text{array}&\textit{matriz}&\textbf{arreglo}
+     \end{array}
+\]
+\begin{verbatim}
+    \[ 
+    \begin{array}{l|c|c|r}
+         \text{$x$ lcr indica la cantidad de columnas}&r=right=derecha
+         &c=center&l=left=izquierda\\
+         \text{La cantidad de filas } &\text{array}&\textit{matriz}&\textbf{arreglo}
+     \end{array}
+    \]
+\end{verbatim}
+La csmáre
+\section{HTML5}
+Por cuestiones de la veda estoy aprendiendo SVG y tiene mucho que ver con HTML 8u, a continuación se mostrará
+un ejemplo de código HTM5 OpiO ...
+\end{document}

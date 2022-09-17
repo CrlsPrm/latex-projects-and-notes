@@ -1,0 +1,95 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{url}
+
+
+\title{Mecánica de Fluidos}
+\author{Carlos Raúl P. S.\\ \small{Física Molecular}\\\small{Facultad de Ciencias Físicas}\\ \small{Universidad Mayor de San Marcos}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Problema 12.41 del capítulo 12, pág.396}
+
+\subsection{En relación con la ecuación de Bernoulli.}
+(12.41.) Un tanque sellado que contiene agua de mar hasta una altura
+de 11.0 m contiene también aire sobre el agua a una presión manométrica
+de 3.00 atm. Sale agua del tanque a través de un agujero pequeño
+en el fondo. ¿Qué tan rápido se está moviendo el agua? 
+
+\subsection{Solución aplicando el método de Pólya}
+
+\subsubsection{Primer paso: Comprensión del problema}
+
+\begin{itemize}
+    \item Incógnita\\
+     a. ¿Cuál es la rapidez del agua  que sale a través de un agujero?.
+    \item Datos \\
+    a.  Tanque sellado y relleno con agua hasta una altura de $11$ $metros$ y aire en su interior en la altura restante.\\
+    b.  Se llama presión manométrica o presión relativa a la diferencia entre la presión absoluta o real y la presión atmosférica. Se aplica tan solo en aquellos casos en los que la presión es superior a la presión atmosférica; cuando esta cantidad es negativa se llama presión de vacío \textbf{(Cengel, Y. (2006). Cap 3, Mecánica de Fluidos)}, por lo que es igual a diferencia entre la presión en $y_1=11$ m y la atmosférica, o sea $p_1 - p_a = 3,00$ atm.\\
+    c. Aceleración de la gravedad igual a $9.80$ $m/s^2$.\\
+    d. Equivalencia de $atm.$ a $Pa.$ es de 1 atm $=$ 101325 Pa.\\
+    e. Densidad aproximada del agua del mar igual 1000 $kg/m^2$.
+    \item Condiciones\\
+    Sale agua a través de un agujero con radio despreciable en el fondo del tanque.
+\end{itemize}
+
+\subsubsection{Segundo paso: Concebir un plan}
+
+Apreciamos que en todo tubo de flujo con área de sección
+transversal cambiante en caso de que el fluido es incompresible,
+el producto $A_i v_i$ tiene el mismo valor en todos los puntos $i$ a lo largo del tubo, por lo tanto, emplearemos la relación:
+
+\begin{equation}
+A_1v_1=A_2v_2
+\end{equation}
+
+denominada ecuación de continuidad en un fluido incompresible. \textbf{(Zemasky et al. 1999, 12.10, Cap.12)}, en nuestro caso es aplicable la ecuación (1) y también la ecuación de Bernoulli.
+
+\begin{equation}
+    p_1+\rho gy_1 + 0.5\rho v_1^2=p_2 + \rho g y_2 + 0.5 \rho v_2^2
+\end{equation}
+
+donde los subíndices 1 y 2 se refieren a dos puntos cualesquiera del tubo de flujo que solo es válida para un flujo estable de un fluido incompresible sin fricción interna \texttt{sin viscosidad}.\textbf{(Zemasky et al. 1999, 12.17, Cap.12)}, con lo que tenemos el conocimiento necesario para poder 
+resolver el problema empleando los datos y las ecuaciones (1) y (2).
+
+\subsubsection{Tercer paso: Ejecución del Plan}
+
+Aplicaremos $(2)$ tomando $y_1=11.0$ $m$  y $y_2=0$ $m$, además hallaremos $v_2$ que sería la velocidad de salida del agua mediante $(1)$ así obtenemos $v_2$, pero el área de la sección transversal del tanque $A_1$ es mucho mayor que el área de la sección transversal del agujero $A_2$, entonces $v_1 << v2_$ y, por lo tanto, ${0.5\rho v_1^2}$ puede despreciarse así en $(2)$ tendríamos $0.5\rho v_2^2=(p_1 - p_2)+\rho gy_1$ y como tomaremos $p_2= p_a$, entonces despejando $v_2$ obtenemos:
+
+\begin{equation*}
+    v_2=\sqrt{(2((p_1 - p_a )/ \rho) + 2gy_1)}
+\end{equation*}
+
+Reemplazado los datos y operando resulta:
+
+\begin{equation*}
+    v_2=\sqrt{(2(3\cdot 101325 Pa)/1000 Kg/m^3) + 2(9.0 m/s^2)(11.0 m)}= 28.697 m/s^2
+\end{equation*}
+
+\subsubsection{Cuarto paso: Examinar la solución obtenida}
+
+Obtuvimos $28.697$ $m/s^2$ la rapidez del agua del mar que sale por un agujero de radio despreciable en un tanque cerrado, pero si la presión en la superficie superior del agua fuera la presión del aire, entonces se podría aplicar el teorema de Toricelli:
+
+\begin{center}
+$ v_2 = \sqrt{2g(y_2 - y_1)} $ como se puede ver en \cite[pág 378]{Baz}
+\end{center}
+
+de lo que resultaría $v_2 =14,7$ m/s con ello damos cuenta que la velocidad del flujo real es mucho mayor que el flujo cuando el tanque está cerrado debido al exceso de presión en la parte superior del tanque.
+
+\begin{thebibliography}{X}
+
+\bibitem{Dan}\text{Yangali Vicente, J. S., \& Rodriguez Lopez, J. L. (2016)}, Aplicación del método Pólya ,Innova Research Journal,1(10),12-20, \url{https://doi.org/10.33890/innova.v1.n10.2016.53}
+
+\bibitem{Baz}\text{Hugh D. Young, `Sears y Zemansky}. Física universitaria con física moderna´, Pearson Educación, 2009. .\url{https://bit.ly/3N6GddQ}
+
+\bibitem{Cengel}\text{Çengel, Y. A., \& Cimbala, J. M. (2012)}. Mecánica de fluidos: Fundamentos y aplicaciones (2a. ed.--.). México D.F.: McGraw Hill.\url{https://bit.ly/3N6Jaeq}
+
+\end{thebibliography}
+
+\end{document}

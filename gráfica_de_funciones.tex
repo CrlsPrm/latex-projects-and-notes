@@ -1,0 +1,267 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{epsfig}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{xparse}
+\usepackage{float}
+\pgfplotsset{compat = newest}
+\title{Grafica de funciones y curvas}
+\author{Carlos Raúl P. S.}
+\begin{document}
+\pgfplotstableread{tabla.dat}{\table}
+\maketitle
+\date
+
+\section{Grafica de funciones}
+La siguiente $ \arctan(\varPhi(x)) $, $\forall x \in \mathbb{R}$ tabla muestra la grafica de funciones \textbf{Ojo: Buscar por el nombre del paquete y su manual así poder entender por completo}.\\\ 
+Como Podemos apreciar, la grafica de las funciones es una curva continua.
+\\ 
+\begin{align*}
+\frac{d}{dx}f(x) &= \frac{d}{dx}g(x)\\
+\end{align*}
+Se aprecia una interesante grafica de la funcion f(x) en el intervalo $[-1,1]$.
+\begin{tikzpicture}
+\begin{axis}[
+    xmin = 0, xmax = 30,
+    ymin = -1.5, ymax = 2.0,
+    xtick distance = 2.5,
+    ytick distance = 0.5,
+    grid = both,
+    minor tick num = 1,
+    major grid style = {lightgray},
+    minor grid style = {lightgray!25},
+    width = \textwidth,
+    height = 0.5\textwidth,
+    xlabel = {$x$},
+    ylabel = {$y$},]
+ 
+% Plot a function
+\addplot[
+    domain = 0:30,
+    samples = 200,
+    smooth,
+    thick,
+    blue,
+] {exp(-x/10)*( cos(deg(x)) + sin(deg(x))/10 )};
+% Plot data from a file
+\addplot[
+    smooth,
+    thin,
+    red,
+    dashed
+] file[skip first] {coord.dat};
+ 
+\end{axis}
+ 
+\end{tikzpicture}
+Como apreciamos en la tabla, la grafica de funciones es una curvas de funciones.
+\subsubsection{Grafica tipo cuadro}
+\begin{figure}[ht]
+    
+    \begin{center}
+    \begin{tikzpicture}
+            \centering
+    \begin{axis}[
+        title={Periodo $(s)$ vs. $masa_{as}$},
+        xlabel={Temperature [\textcelsius]},
+        ylabel={Solubility [g per 100 g water]},
+        xmin=0, xmax=100,
+        ymin=0, ymax=120,
+        xtick={0,20,40,60,80,100},
+        ytick={0,20,40,60,80,100,120},
+        legend pos=north west,
+        ymajorgrids=true,
+        grid style=dashed,
+        ]
+        
+        \addplot[
+            color=blue,
+        mark=square,
+        ]
+        coordinates {
+            (0,23.1)(10,27.5)(20,32)(30,37.8)(40,44.6)(60,61.8)(80,83.8)(100,114)
+            };
+            \addplot[
+                color=red,
+                only marks, mark = x, mark size = 3pt,
+                ]
+            coordinates {
+                (0,10)(10,20)(20,30)(30,35)(40,42)(60,60)(80,80)(100,100)
+                };
+                \addplot[
+                    domain = 10:50,
+                    samples = 200,
+                    smooth,
+                    thick,
+                    cyan,
+                    ] {1.5*x+10};
+                    \legend{
+                        CuSO\(_4\cdot\)5H\(_2\)O,
+                        Aea,
+                        Sape lokita 
+                        }
+                        
+                    \end{axis}
+            \end{tikzpicture}
+        \end{center}
+        \caption{Grafica de funciones tipo cuadro}
+        \label{fig2}
+
+    \end{figure}
+\subsection{Ideal}
+\blindtext
+\begin{figure}[ht!]
+    \begin{tikzpicture}
+        \begin{axis}[
+            xmin = 0, xmax = 10,
+            ymin = 0, ymax = 1,
+            xtick distance = 1,
+            ytick distance = 0.10,
+            grid = both,
+            minor tick num = 1,
+            major grid style = {lightgray},
+            minor grid style = {lightgray!25},
+        width = \textwidth,
+        height = 0.75\textwidth,
+        legend cell align = {left},
+        legend pos = north west
+        ]
+     
+        \addplot[blue, mark = *] table [x = {x}, y = {y1}] {\table};
+        
+        \addplot[red, only marks] table [x ={x}, y = {y2}] {\table};
+        
+        \addplot[teal, only marks, mark = x, mark size = 3pt] table [x = {x}, y = {y3}] {\table};
+        
+        \legend{
+            Plot with marks and line, 
+            Plot only with marks,
+            Plot with other type of marks
+            }
+            
+        \end{axis}
+        
+    \end{tikzpicture}
+    \caption{Grafica de funciones tipo cuadro}
+    \label{fig:cuadroideal}
+    \end{figure}
+
+    \blindtext 
+
+\subsection{Por si las pulgas}
+\blindtext
+\begin{figure}[ht!]
+    \begin{tikzpicture}
+        
+        \begin{axis}[
+        width=10cm,
+       height=4cm,
+       scale only axis,
+       xmin=0.8, xmax=3.2,
+       xtick={1,2,3},
+       xticklabels={Step1,Step2,Step3},
+       xmajorgrids,
+       ymin=0.7, ymax=1.1,
+       ylabel={$\xi$},
+       ymajorgrids,
+       title={Stroke Ratio Comparison},
+       axis lines*=left,
+       %  line width=1.0pt,
+       %  mark size=2.0pt,
+       legend style ={ at={(1.03,1)}, 
+       anchor=north west, draw=black, 
+       fill=white,align=left},
+       cycle list name=black white,
+       smooth
+    ]
+    
+    \addplot coordinates{
+            (1,0.941517254116162)
+            (2,0.833049791172753)
+            (3,0.911012408209885) 
+            };
+            \addlegendentry{$L/D$=2.5};
+            
+            \addplot coordinates{
+                (1,0.848646925806495)
+            (2,0.889383162622147)
+            (3,0.901265846062356) 
+            };
+       \addlegendentry{$L/D$=3.5};
+       
+       \addplot coordinates{
+           (1,0.773775422607358)
+           (2,0.836291579743709)
+           (3,0.91821563038864) 
+           };
+           \addlegendentry{$L/D$=4.0};
+           
+           \addplot coordinates{
+               (1,0.846412925696005)
+               (2,0.909313371999676)
+               (3,0.916886900310392) 
+        };
+        \addlegendentry{$L/D$=4.5};
+        
+        \addplot coordinates{
+            (1,0.884302757051131)
+            (2,0.941642806394511)
+            (3,0.995341242858434) 
+            };
+            \addlegendentry{$L/D$=5.0};
+            
+            \addplot coordinates{
+                (1,0.789821315674376)
+            (2,0.981738703732297)
+            (3,1.04121306622012) 
+        };
+        \addlegendentry{$L/D$=6.0};
+    
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Figura loca}
+    \label{figloca}
+\end{figure}
+\blindtext
+\subsection{Grafica simple}
+\begin{figure}
+    \begin{center}
+        \begin{tikzpicture}[domain=0:4]
+            \draw[very thin,color=gray] (-0.1,-1.1) grid (3.9,3.9);
+            \draw[color=black] (-0.2,0) -- (4.2,0) node[right] {$x$};
+            \draw[color=black] (0,-1.2) -- (0,4.2) node[above] {$f(x)$};
+            \draw[color=red] plot (\x,\x) node[right] {$f(x) =x$};
+            \draw[color=blue] plot (\x,{sin(\x r)}) node[right] {$f(x) = \sin x$};
+            \draw[color=orange] plot (\x,{0.05*exp(\x)}) node[right] {$f(x) = \frac{1}{20} \mathrm e^x$};
+            \end{tikzpicture}
+    \end{center}
+    \caption{Grafica simple}
+    \label{fig:simple}
+\end{figure}
+\blindtext
+\subsection{La biblio:P}ç
+Acá va la biblio
+\begin{thebibliography}{9}
+    \bibitem{lamport94}
+      Leslie Lamport,
+      \textit{\LaTeX: a document preparation system},
+      Addison Wesley, Massachusetts,
+      2nd edition,
+      1994.
+    \bibitem{chatarra}
+      El chatarra,
+      \textit{\LaTeX: a document preparation system},
+      Addison Wesley, Massachusetts,
+      2nd edition,
+      1994.
+\end{thebibliography}
+\end{document}

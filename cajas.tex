@@ -1,0 +1,31 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage{fancybox}
+\usepackage{verbatim}
+\title{Apuntes de Tipos de Cajas \LaTeX{Box}}
+\author{Carlos Raul}
+\date{27/05/2022}
+\begin{document}
+\maketitle
+    \section{Apuntes}
+    Las cajas se caracterizan por tres
+elementos (longitudes):
+\begin{verbatim}
+    
+    Altura sobre la línea base (\height), profundidad
+    (\depth) (por ejemplo, la longitud del
+    rabillo de la letra “p”) y anchura
+    (\width). La suma de altura y profundidad
+    se denomina \totalheight.
+\end{verbatim} 
+Ejemplo de preambulos
+\begin{verbatim}
+    \documentclass{article}
+    \usepackage{amsmath}
+    \usepackage[letterpaper, margin=1.5in, headheight=14pt]{geometry}
+\end{verbatim}
+
+    \subsection{Ejemplos}
+    Caja box \framebox[3\width]{simple.}
+
+
+\end{document}

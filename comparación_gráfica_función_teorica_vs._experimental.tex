@@ -1,0 +1,54 @@
+\documentclass[svgnames]{standalone}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{epsfig}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{xparse}
+\usepackage{float}
+\pgfplotsset{compat = newest}
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[
+    title={Comparación},
+    xmin = 0, xmax = 0.02,
+    ymin = 4, ymax = 5,
+    xtick distance = 0.002,
+    ytick distance = 0.1,
+    grid = both,
+    minor tick num = 1,
+    major grid style = {lightgray},
+    minor grid style = {lightgray!25},
+    width = \textwidth,
+    height =\textwidth,
+    xlabel = {$t$},
+    ylabel = {$y$},]
+ 
+% Plot a function
+\addplot[
+    domain = 0:0.021,
+    samples = 200,
+    smooth,
+    thick,
+    blue,
+] {4.64103*exp(-20*x)+0.358974*exp(-0.5*x)};
+% Plot data from a file
+\addplot[
+    smooth,
+    thin,
+    red,
+    dashed
+] file[skip first] {tablas_de_datos/coord.dat};
+ 
+\end{axis}
+ 
+\end{tikzpicture}
+\end{document}

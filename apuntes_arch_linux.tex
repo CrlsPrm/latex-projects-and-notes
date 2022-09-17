@@ -1,0 +1,46 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{bookmark}
+
+\author{CrlsRl}
+\title{Arch installation}
+\begin{document}
+\maketitle
+\section{Configuration}
+\section{Command and description}
+Installation with medium UEFI.
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{r|l}
+    Set of size font of the command line  & \texttt{ls /usr/share/kbd/consolefonts/} \\ Choose the size of the command line & \texttt{setfont sizeoffont.psfu.gz}\\
+    Later to shutdown after the installation&Dont forget to expulse the disc .iso \\ & or the pendrive, Okay?
+  \end{tabular}
+  \caption{Descripción}
+\end{table}
+\section{Mount and umount}
+Delete swap partition: \texttt{swapof /dev/swapp file} or the direction you choose.
+\\ 
+Unmount a partition linus filesystem \texttt{umount -option direction+unmount+filesystems} for more information \url{https://man.archlinux.org/man/umount.8.en}
+\\ 
+If you create a EFI partition do later swamp and mount the home and mnt \texttt{ mkfs.fat -F 32 /dev/efi-system-partition}.   
+\\ 
+To enable multilib repository, uncomment the [multilib] section in /etc/pacman.conf:
+\texttt
+{/etc/pacman.conf
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+}
+\\ New terminal \texttt{alt + f2}
+\\ 
+Keyboard distro in espanish later to the fierst time in qtile write in terminal \texttt{setxkbmap es}
+\\ 
+Refresh qtile \texttt{mod + crtl + r}
+\\
+Keyboard ditro es in qtile \texttt{setxkbmap es}
+\end{document}

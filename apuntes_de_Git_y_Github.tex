@@ -1,0 +1,129 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Define Article %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Using Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{amssymb, amsmath, amsthm}
+\usepackage{empheq} 
+\usepackage{mdframed}
+\usepackage{booktabs}
+\usepackage{lipsum}
+\usepackage{psfrag}
+\usepackage{pgfplots}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{tabularx}%tablas
+\usepackage{float}
+\usepackage{color}
+\usepackage{xcolor}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Other Settings
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Page Setting %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\geometry{a4paper}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Define an orangebox command %%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\contentsname}{Contenido}
+\renewcommand{\partname}{Parte}
+\renewcommand{\appendixname}{Apéndice}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\tablename}{Tabla}
+\AtBeginDocument{\renewcommand\tablename{Tabla}}
+\renewcommand{\abstractname}{Resumen}
+\renewcommand{\refname}{Bibliografía}
+\newcommand\orangebox[1]{\fcolorbox{ocre}{mygray}{\hspace{1em}#1\hspace{1em}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% English Environments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheoremstyle{mytheoremstyle}{3pt}{3pt}{\normalfont}{0cm}{\rmfamily\bfseries}{}{1em}{{\color{black}\thmname{#1}~\thmnumber{#2}}\thmnote{\,--\,#3}}
+\newtheoremstyle{myproblemstyle}{3pt}{3pt}{\normalfont}{0cm}{\rmfamily\bfseries}{}{1em}{{\color{black}\thmname{#1}~\thmnumber{#2}}\thmnote{\,--\,#3}}
+\theoremstyle{mytheoremstyle}
+\newmdtheoremenv[linewidth=1pt,backgroundcolor=shallowGreen,linecolor=deepGreen,leftmargin=0pt,innerleftmargin=20pt,innerrightmargin=20pt,]{theorem}{Theorem}[section]
+\theoremstyle{mytheoremstyle}
+\newmdtheoremenv[linewidth=1pt,backgroundcolor=shallowBlue,linecolor=deepBlue,leftmargin=0pt,innerleftmargin=20pt,innerrightmargin=20pt,]{definition}{Definition}[section]
+\theoremstyle{myproblemstyle}
+\newmdtheoremenv[linecolor=black,leftmargin=0pt,innerleftmargin=10pt,innerrightmargin=10pt,]{problem}{Problem}[section]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Plotting Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepgfplotslibrary{colorbrewer}
+\pgfplotsset{width=8cm,compat=1.9}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Title & Author %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{\color{orange}\textbf{Git}}
+\author{Carlos Raúl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+    \maketitle
+\section{Que es GIT?}
+    Es un \textit{software} controlador de versiones de codigo abierto.
+\subsection{Terminología}
+
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{r|l}            
+            Repositorio & Proyecto seguido en GIT\\
+            Commit & Acción de actualizar el repositorio\\ 
+            Ramas & Nuevos caminos del proyecto\\ 
+            Master & Rama principal del proyecto\\ 
+            Clon & Copia del repositorio\\
+            Fork & Proyecto distinto a partir de otro\\ 
+            BackUp & Copia del repositorio en caso de error de algún commit\\
+            Fusiones Merge & Integración de una rama al Master\\
+            Origin & Repositorio en la nube \textbf{Dev}
+        
+        \end{tabular}
+        \caption{Terminología}
+    \end{table}   
+    \subsection{Como se trabaja con GIT}
+    \subsubsection{Básico}
+    Si se crea un proyecto desde cero se tipea en terminal \texttt{git init} o para clonar un repositorio \texttt{git clone}.
+    \\ 
+    El \texttt{Standing Area} o area de preparación es la interfaz intermedia antes de hacer el commit. 
+    Cada \texttt{commit} debe ser específicamente descrito fin y utilidad.\\
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{r|l}            
+            \texttt{git init} o \texttt{git clone /url} & Inicio del proyecto o clonación de un proyecto anterior.\\
+            \texttt{git add namefile.txt}& Agregar el archivo txt\\ 
+            \texttt{git add *.txt} & Agrega todos los archivos con termino en .txt .\\
+            \texttt{git status o git status -s}& Muestra el flujo sobre los archivos que se trabajan.\\ 
+            \texttt{git add namefile.txt} &  Actualiza la  modificación de namefile.txt al Standing area.\\
+            \texttt{git commit -m "Dscp."}&  Dscp.='Descripción de la modificación' así subes a  la rama.\\ 
+            \texttt{git rm namefile.txt} & Elimina namefile.txt de tu espacio de trabajo.
+            % \texttt{git restorer --staged namefile.txt}& Elimina nos quedamos en el minuto 39:27 mas o menos :P 
+        \end{tabular}
+        \caption{Flujo de trabajo}
+    \end{table}   
+    Así ciclicamente realizas las actualizaciones del proyecto. 
+\section{Apéndice}
+El \texttt{word wrap} sirve para la configuración de codigo así poder visualizar todo el codigo en una sola pestaña. \\ 
+Aleluya...\\
+    Creando archivos y directorios por terminal en linux... \\
+\texttt{mkdir namedir} para crear carpetas desde terminal y escribimos \texttt{nvim} nos abre una nueva interfaz ahí digitamos el contenido  con  \texttt{i} luego salimos con \texttt{cntrl + c + :w namefile.txt}  
+\section{Curiosidades y soluciones}
+\subsection{Git no te permite subir carpetas vacías al repositorio}
+\subsection{Si se tiene el problema de \texttt{! [rejected] master -> master (fetch first)} }
+Problema al eliminar un archivo y crear una carpeta.
+\begin{verbatim}
+    As it is stated in the Error message you have to "fetch first".
+    This worked for me. Use the command:
+        git fetch origin master
+    Then follow these steps to merge:
+        git pull origin master
+        git add .
+        git commit -m 'your commit message'
+        git push origin master
+\end{verbatim}
+
+\end{document}
